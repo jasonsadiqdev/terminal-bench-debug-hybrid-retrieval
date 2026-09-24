@@ -1,0 +1,20 @@
+{
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "anthropic/claude-sonnet-4-6",
+            "kwargs": {
+                "reasoning_effort": "medium"
+            },
+            "env": {
+                "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "128000"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "tasks/debug-hybrid-retrieval"
+        }
+    ]
+}

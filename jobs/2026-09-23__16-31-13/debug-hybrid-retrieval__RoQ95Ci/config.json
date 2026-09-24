@@ -1,0 +1,15 @@
+{
+    "task": {
+        "path": "tasks/debug-hybrid-retrieval"
+    },
+    "trial_name": "debug-hybrid-retrieval__RoQ95Ci",
+    "trials_dir": "jobs/2026-09-23__16-31-13",
+    "agent": {
+        "name": "codex",
+        "model_name": "openai/gpt-5.6-sol",
+        "kwargs": {
+            "reasoning_effort": "xhigh"
+        }
+    },
+    "job_id": "9a9aa1d3-83e9-4aa4-a240-97a3c7be968d"
+}

@@ -1,0 +1,13 @@
+{
+    "task": {
+        "path": "debug-hybrid-retrieval"
+    },
+    "trial_name": "debug-hybrid-retrieval__LD5whx2",
+    "trials_dir": "jobs/harden-claude-smoke-2",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "claude-code",
+        "model_name": "anthropic/claude-opus-5"
+    },
+    "job_id": "02a1e0fc-e922-40a7-a1d5-42fab8156e07"
+}

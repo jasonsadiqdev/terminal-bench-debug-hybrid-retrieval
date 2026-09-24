@@ -1,0 +1,9 @@
+{
+    "job_name": "debug-hybrid-oracle-diff",
+    "n_concurrent_trials": 1,
+    "tasks": [
+        {
+            "path": "debug-hybrid-retrieval"
+        }
+    ]
+}

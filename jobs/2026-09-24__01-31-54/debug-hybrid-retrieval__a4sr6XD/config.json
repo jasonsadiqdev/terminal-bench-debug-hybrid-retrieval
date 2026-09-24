@@ -1,0 +1,11 @@
+{
+    "task": {
+        "path": "tasks/debug-hybrid-retrieval"
+    },
+    "trial_name": "debug-hybrid-retrieval__a4sr6XD",
+    "trials_dir": "jobs/2026-09-24__01-31-54",
+    "agent": {
+        "name": "nop"
+    },
+    "job_id": "fcfdee7b-77c9-492d-a41b-9f6d418b8c5e"
+}

@@ -1,0 +1,167 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-09-24T12:58:55.300403+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 2,
+            "failed": 10,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790254730222,
+            "stop": 1790254735299
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_lexical_retrieval",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 355,
+                "start": 1790254730271,
+                "stop": 1790254730626,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_lexical_retrieval():\n        \"\"\"Hyphenated / inflected query terms must match the indexed document.\"\"\"\n        spec = LABELS[\"lexical\"]\n        ids = _ids(_search(spec[\"query\"]))\n        relevant = spec[\"relevant\"][0]\n>       assert relevant in ids, f\"lexical target {relevant} missing from top-k: {ids}\"\nE       AssertionError: lexical target hx.lex.compound missing from top-k: ['hx.dup.c', 'hx.dup.b', 'hx.noise.office', 'hx.noise.billing', 'hx.bm25.s4']\nE       assert 'hx.lex.compound' in ['hx.dup.c', 'hx.dup.b', 'hx.noise.office', 'hx.noise.billing', 'hx.bm25.s4']\n\ntests/test_outputs.py:93: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_simple_query_retrieval",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 345,
+                "start": 1790254730627,
+                "stop": 1790254730972,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_simple_query_retrieval():\n        \"\"\"A simple unique-phrase query must still retrieve its document.\"\"\"\n        spec = LABELS[\"simple\"]\n        ids = _ids(_search(spec[\"query\"]))\n        relevant = spec[\"relevant\"][0]\n>       assert relevant in ids, f\"simple target {relevant} missing from top-k: {ids}\"\nE       AssertionError: simple target hx.noise.office missing from top-k: ['hx.bm25.s3', 'hx.bm25.s2', 'hx.bm25.s10', 'hx.bm25.s1', 'hx.dense.s3']\nE       assert 'hx.noise.office' in ['hx.bm25.s3', 'hx.bm25.s2', 'hx.bm25.s10', 'hx.bm25.s1', 'hx.dense.s3']\n\ntests/test_outputs.py:105: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_dense_retrieval",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 336,
+                "start": 1790254730972,
+                "stop": 1790254731308,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_dense_retrieval():\n        \"\"\"The nearest embedding must outrank an opposite-direction document.\"\"\"\n        spec = LABELS[\"dense\"]\n        ids = _ids(_search(spec[\"query\"]))\n        close = spec[\"relevant\"][0]\n        far = spec[\"irrelevant\"][0]\n>       assert close in ids, f\"dense neighbor {close} missing from top-k: {ids}\"\nE       AssertionError: dense neighbor hx.sem.close missing from top-k: ['hx.sem.far', 'hx.norm.lex', 'hx.noise.meals', 'hx.bm25.s4', 'hx.bm25.s3']\nE       assert 'hx.sem.close' in ['hx.sem.far', 'hx.norm.lex', 'hx.noise.meals', 'hx.bm25.s4', 'hx.bm25.s3']\n\ntests/test_outputs.py:114: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_hybrid_retrieval",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 331,
+                "start": 1790254731308,
+                "stop": 1790254731639,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_hybrid_retrieval():\n        \"\"\"A document that is mid-ranked on each channel should win after fusion.\"\"\"\n        spec = LABELS[\"hybrid\"]\n        ids = _ids(_search(spec[\"query\"]))\n>       assert ids[0] == spec[\"winner\"], f\"hybrid winner must be rank 1, got {ids}\"\nE       AssertionError: hybrid winner must be rank 1, got ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\nE       assert 'hx.bm25.s2' == 'hx.hyb.bridge'\nE         \nE         - hx.hyb.bridge\nE         + hx.bm25.s2\n\ntests/test_outputs.py:123: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_score_direction",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 356,
+                "start": 1790254731639,
+                "stop": 1790254731995,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_score_direction():\n        \"\"\"Higher fused score must mean higher rank; relevant beats noise.\"\"\"\n        spec = LABELS[\"hybrid\"]\n        payload = _search(spec[\"query\"])\n        scores = _scores(payload)\n        ids = _ids(payload)\n        assert scores == sorted(scores, reverse=True), f\"scores must be nonincreasing: {scores}\"\n>       assert ids[0] == spec[\"winner\"], f\"relevant doc must outrank others: {ids}\"\nE       AssertionError: relevant doc must outrank others: ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\nE       assert 'hx.bm25.s2' == 'hx.hyb.bridge'\nE         \nE         - hx.hyb.bridge\nE         + hx.bm25.s2\n\ntests/test_outputs.py:133: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_fusion_behavior",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 347,
+                "start": 1790254731995,
+                "stop": 1790254732342,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_fusion_behavior():\n        \"\"\"The hybrid winner must outrank single-channel specialists.\"\"\"\n        spec = LABELS[\"hybrid\"]\n        ids = _ids(_search(spec[\"query\"]))\n        winner = spec[\"winner\"]\n>       assert winner in ids, f\"hybrid winner {winner} missing from fused top-k: {ids}\"\nE       AssertionError: hybrid winner hx.hyb.bridge missing from fused top-k: ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\nE       assert 'hx.hyb.bridge' in ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\n\ntests/test_outputs.py:145: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_normalization_polarity",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 339,
+                "start": 1790254732343,
+                "stop": 1790254732682,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_normalization_polarity():\n        \"\"\"Higher raw BM25 must stay a stronger lexical signal after normalization.\"\"\"\n        spec = LABELS[\"normalization\"]\n        ids = _ids(_search(spec[\"query\"]))\n        winner = spec[\"winner\"]\n        loser = spec[\"loser\"]\n>       assert ids[0] == winner, f\"normalization winner must be rank 1, got {ids}\"\nE       AssertionError: normalization winner must be rank 1, got ['hx.bm25.s10', 'hx.bm25.s1', 'hx.lex.compound', 'hx.noise.office', 'hx.noise.billing']\nE       assert 'hx.bm25.s10' == 'hx.norm.lex'\nE         \nE         - hx.norm.lex\nE         + hx.bm25.s10\n\ntests/test_outputs.py:157: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_candidate_pool",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 338,
+                "start": 1790254732683,
+                "stop": 1790254733021,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_candidate_pool():\n        \"\"\"Mid-rank hybrid documents must enter the fused list, not die at per-channel top-k.\"\"\"\n        spec = LABELS[\"pool\"]\n        ids = _ids(_search(spec[\"query\"]))\n>       assert spec[\"winner\"] in ids, f\"mid-rank hybrid doc {spec['winner']} dropped before fusion: {ids}\"\nE       AssertionError: mid-rank hybrid doc hx.hyb.bridge dropped before fusion: ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\nE       assert 'hx.hyb.bridge' in ['hx.bm25.s2', 'hx.bm25.s5', 'hx.bm25.s10', 'hx.noise.billing', 'hx.noise.office']\n\ntests/test_outputs.py:166: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_dedup_canonical_id",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 331,
+                "start": 1790254733021,
+                "stop": 1790254733352,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_dedup_canonical_id():\n        \"\"\"At most one chunk from a canonical family may appear, and one must appear.\"\"\"\n        spec = LABELS[\"dedup\"]\n        ids = _ids(_search(spec[\"query\"]))\n        family = spec[\"family\"]\n        hits = [doc_id for doc_id in ids if doc_id in family]\n>       assert len(hits) == 1, f\"expected exactly one canonical hit, got {hits}\"\nE       AssertionError: expected exactly one canonical hit, got []\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/test_outputs.py:175: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic_ordering",
+                "status": "passed",
+                "duration": 1289,
+                "start": 1790254733352,
+                "stop": 1790254734641,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tie_break",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 334,
+                "start": 1790254734641,
+                "stop": 1790254734975,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_tie_break():\n        \"\"\"Equal fused scores must keep a stable field-based order.\"\"\"\n        spec = LABELS[\"tie\"]\n        payload = _search(spec[\"query\"])\n        ids = _ids(payload)\n        first, second = spec[\"ordered\"]\n>       assert first in ids and second in ids, f\"tie pair missing from top-k: {ids}\"\nE       AssertionError: tie pair missing from top-k: ['hx.bm25.s1', 'hx.bm25.s2', 'hx.bm25.s10', 'hx.bm25.s7', 'hx.bm25.s6']\nE       assert ('hx.tie.alpha' in ['hx.bm25.s1', 'hx.bm25.s2', 'hx.bm25.s10', 'hx.bm25.s7', 'hx.bm25.s6'])\n\ntests/test_outputs.py:193: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_top_k_count",
+                "status": "passed",
+                "duration": 322,
+                "start": 1790254734976,
+                "stop": 1790254735298,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

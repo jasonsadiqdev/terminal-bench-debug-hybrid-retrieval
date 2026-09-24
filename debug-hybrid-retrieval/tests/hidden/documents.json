@@ -178,6 +178,55 @@
       "metadata": {"role": "dense-specialist"}
     },
     {
+      "doc_id": "hx.dense.s11",
+      "canonical_id": "hx.dense.s11",
+      "title": "Clay flower pot",
+      "text": "Clay flower pot sat empty on the sill.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s12",
+      "canonical_id": "hx.dense.s12",
+      "title": "Wicker sewing basket",
+      "text": "Wicker sewing basket held spare thread.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s13",
+      "canonical_id": "hx.dense.s13",
+      "title": "Oak coat peg",
+      "text": "Oak coat peg held a spare scarf.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s14",
+      "canonical_id": "hx.dense.s14",
+      "title": "Tin watering can",
+      "text": "Tin watering can leaned by the shed door.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s15",
+      "canonical_id": "hx.dense.s15",
+      "title": "Linen tea towel",
+      "text": "Linen tea towel dried on the rail.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s16",
+      "canonical_id": "hx.dense.s16",
+      "title": "Stone doorstop",
+      "text": "Stone doorstop kept the pantry open.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
+      "doc_id": "hx.dense.s17",
+      "canonical_id": "hx.dense.s17",
+      "title": "Pine soap crate",
+      "text": "Pine soap crate sat under the sink.",
+      "metadata": {"role": "dense-specialist"}
+    },
+    {
       "doc_id": "hx.norm.lex",
       "canonical_id": "hx.norm.lex",
       "title": "Shard compaction and retention on the hot tier",

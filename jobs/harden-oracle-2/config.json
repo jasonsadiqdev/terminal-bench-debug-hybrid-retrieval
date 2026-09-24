@@ -1,0 +1,9 @@
+{
+    "job_name": "harden-oracle-2",
+    "n_concurrent_trials": 1,
+    "tasks": [
+        {
+            "path": "debug-hybrid-retrieval"
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-09-23T20:24:00.007290+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790195035958,
+            "stop": 1790195040006
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_lexical_retrieval",
+                "status": "passed",
+                "duration": 397,
+                "start": 1790195035990,
+                "stop": 1790195036387,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dense_retrieval",
+                "status": "passed",
+                "duration": 303,
+                "start": 1790195036388,
+                "stop": 1790195036691,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_hybrid_retrieval",
+                "status": "passed",
+                "duration": 299,
+                "start": 1790195036691,
+                "stop": 1790195036990,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_score_direction",
+                "status": "passed",
+                "duration": 328,
+                "start": 1790195036991,
+                "stop": 1790195037319,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_fusion_behavior",
+                "status": "passed",
+                "duration": 378,
+                "start": 1790195037320,
+                "stop": 1790195037698,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_candidate_pool",
+                "status": "passed",
+                "duration": 474,
+                "start": 1790195037698,
+                "stop": 1790195038172,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dedup_canonical_id",
+                "status": "passed",
+                "duration": 648,
+                "start": 1790195038173,
+                "stop": 1790195038821,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic_ordering",
+                "status": "passed",
+                "duration": 786,
+                "start": 1790195038821,
+                "stop": 1790195039607,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_top_k_count",
+                "status": "passed",
+                "duration": 397,
+                "start": 1790195039608,
+                "stop": 1790195040005,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,137 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-09-24T12:59:46.685611+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790254781736,
+            "stop": 1790254786684
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_lexical_retrieval",
+                "status": "passed",
+                "duration": 329,
+                "start": 1790254781785,
+                "stop": 1790254782114,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_simple_query_retrieval",
+                "status": "passed",
+                "duration": 334,
+                "start": 1790254782115,
+                "stop": 1790254782449,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dense_retrieval",
+                "status": "passed",
+                "duration": 319,
+                "start": 1790254782450,
+                "stop": 1790254782769,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_hybrid_retrieval",
+                "status": "passed",
+                "duration": 323,
+                "start": 1790254782770,
+                "stop": 1790254783093,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_score_direction",
+                "status": "passed",
+                "duration": 337,
+                "start": 1790254783094,
+                "stop": 1790254783431,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_fusion_behavior",
+                "status": "passed",
+                "duration": 338,
+                "start": 1790254783432,
+                "stop": 1790254783770,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_normalization_polarity",
+                "status": "passed",
+                "duration": 321,
+                "start": 1790254783770,
+                "stop": 1790254784091,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_candidate_pool",
+                "status": "passed",
+                "duration": 333,
+                "start": 1790254784092,
+                "stop": 1790254784425,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dedup_canonical_id",
+                "status": "passed",
+                "duration": 319,
+                "start": 1790254784426,
+                "stop": 1790254784745,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_deterministic_ordering",
+                "status": "passed",
+                "duration": 1289,
+                "start": 1790254784746,
+                "stop": 1790254786035,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tie_break",
+                "status": "passed",
+                "duration": 326,
+                "start": 1790254786036,
+                "stop": 1790254786362,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_top_k_count",
+                "status": "passed",
+                "duration": 321,
+                "start": 1790254786362,
+                "stop": 1790254786683,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "job_name": "debug-hybrid-nop-diff",
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "nop"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "debug-hybrid-retrieval"
+        }
+    ]
+}

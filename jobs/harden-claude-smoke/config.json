@@ -1,0 +1,15 @@
+{
+    "job_name": "harden-claude-smoke",
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "anthropic/claude-opus-5"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "debug-hybrid-retrieval"
+        }
+    ]
+}

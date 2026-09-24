@@ -2,8 +2,8 @@
 {
   "top_k": 5,
   "candidates": {
-    "lexical": 16,
-    "dense": 16
+    "lexical": 8,
+    "dense": 8
   },
   "bm25": {
     "k1": 1.2,
