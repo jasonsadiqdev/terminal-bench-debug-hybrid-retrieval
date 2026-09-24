@@ -6,6 +6,10 @@
     "relevant": ["hx.lex.compound"],
     "irrelevant": ["hx.lex.warmup", "hx.sem.far", "hx.noise.office"]
   },
+  "simple": {
+    "query": "visitor desks",
+    "relevant": ["hx.noise.office"]
+  },
   "dense": {
     "query": "promql lookback matcher",
     "relevant": ["hx.sem.close"],
@@ -18,8 +22,21 @@
     "dense_specialist": "hx.dense.s1",
     "noise": "hx.noise.office"
   },
+  "normalization": {
+    "query": "shard compaction retention",
+    "winner": "hx.norm.lex",
+    "loser": "hx.norm.invert"
+  },
+  "pool": {
+    "query": "rolling up high-cardinality time-series",
+    "winner": "hx.hyb.bridge"
+  },
   "dedup": {
     "query": "egress proxy mtls",
-    "family": ["hx.dup.a", "hx.dup.b"]
+    "family": ["hx.dup.a", "hx.dup.b", "hx.dup.c"]
+  },
+  "tie": {
+    "query": "obsidian sundial replica",
+    "ordered": ["hx.tie.alpha", "hx.tie.beta"]
   }
 }

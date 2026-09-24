@@ -32,11 +32,12 @@ class HybridRetriever:
 
     def retrieve(self, query: str, top_k: int | None = None) -> SearchResponse:
         k = self.config.top_k if top_k is None else top_k
-        # Retrieve a candidate pool larger than the final cut so fusion can
-        # promote documents that are mid-ranked on each channel alone.
-        pool = max(k * 8, 24)
-        lexical_hits = self.bm25.search(query, limit=pool)
-        dense_hits = self.dense.search(query, limit=pool)
+        # Each channel retrieves its configured working set, which can be
+        # larger than the final cut so fusion can promote mid-rank documents.
+        lexical_limit = max(self.config.lexical_candidates, k)
+        dense_limit = max(self.config.dense_candidates, k)
+        lexical_hits = self.bm25.search(query, limit=lexical_limit)
+        dense_hits = self.dense.search(query, limit=dense_limit)
 
         raw_lexical = {hit.doc_id: hit.score for hit in lexical_hits}
         raw_dense = {hit.doc_id: hit.score for hit in dense_hits}

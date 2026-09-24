@@ -2,7 +2,7 @@
 """CLI for the Meridian hybrid retriever.
 
 Examples:
-    python -m retriever search "rolling up high-cardinality time-series"
+    python -m retriever search "query text"
     python -m retriever search --top-k 5 --output /tmp/hits.json "query text"
 """
 

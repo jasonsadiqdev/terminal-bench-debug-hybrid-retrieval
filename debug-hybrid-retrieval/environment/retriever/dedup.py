@@ -16,7 +16,7 @@ def deduplicate(
         document = documents.get(hit.doc_id)
         if document is None:
             continue
-        key = document.canonical_id
+        key = document.doc_id
         current = best.get(key)
         if current is None or hit.score > current.score or (
             hit.score == current.score and hit.doc_id < current.doc_id
