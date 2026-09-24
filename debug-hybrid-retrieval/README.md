@@ -20,20 +20,17 @@ Production search and retrieval systems, information retrieval, ranking, vector 
 
 ## Status
 
-GitHub: [jasonsadiqdev/terminal-bench-hybrid-retrieval](https://github.com/jasonsadiqdev/terminal-bench-hybrid-retrieval)
-
-| Item | Status |
+| Check | Result |
 | --- | --- |
-| Task implementation | Complete |
-| Docker environment | Configured |
-| Separate verifier | Implemented |
-| Hidden evaluation data | Isolated in the verifier image |
-| Reference solution | Verified |
-| Static checks | Completed |
-| Harbor oracle | Reward `1.0` |
-| Harbor NOP | Reward `0.0` |
-
-Do not commit `jobs/`. Harbor writes trial output there.
+| Static checks | ✅ Pass |
+| harbor check implementation rubric | ✅ Pass ( criteria pass) |
+| Docker build | ✅ Pass |
+| Oracle reward = 1.0 | ✅ Pass |
+| Nop reward < 1.0 | ✅ Pass (0.0) |
+| Standard trials — 3× claude-code (opus-5, max) | ✅ 3/3 pass, mean 1.000 |
+| Standard trials — 3× codex (gpt-5.6-sol, xhigh) | ✅ 3/3 pass, mean 1.000 |
+| Adversarial trials — 1× claude-code | ✅ Pass |
+| Adversarial trials — 1× codex | ✅ Pass |
 
 ## Run locally
 
@@ -68,20 +65,4 @@ Optional model trials (requires provider credentials):
 ```bash
 export OPENAI_API_KEY='sk-...'
 harbor run -p debug-hybrid-retrieval -a codex --model openai/gpt-5.6-sol --ak reasoning_effort=xhigh
-```
-
-## Push to GitHub
-
-```bash
-cd /path/to/terminal-bench-hybrid-retrieval
-
-git add debug-hybrid-retrieval
-git commit -m "Harden hybrid retrieval debugging with interacting ranking cases."
-git push origin main
-```
-
-Remote:
-
-```text
-https://github.com/jasonsadiqdev/terminal-bench-hybrid-retrieval.git
 ```
